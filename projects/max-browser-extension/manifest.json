@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "ALFACRM Max Contact Link",
+  "version": "0.1.0",
+  "description": "Adds \"Связаться по Max\" link next to phone numbers in ALFACRM customer page.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.green-api.com/*",
+    "https://*.greenapi.com/*",
+    "https://max.ru/*",
+    "https://web.max.ru/*",
+    "https://*.workers.dev/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://codim.s20.online/company/*/customer/view*",
+        "https://max.ru/*",
+        "https://web.max.ru/*"
+      ],
+      "all_frames": true,
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
